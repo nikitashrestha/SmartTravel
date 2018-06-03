@@ -1,3 +1,8 @@
 from django.db import models
+from django import forms
 
-# Create your models here.
+
+#query form
+class query(forms.Form):
+    input=forms.CharField(label='Search: ', max_length=50)
+

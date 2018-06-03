@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+     <title>Search</title>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
 </head>
 <body>
-
-
-
+    {% block result %} {% endblock%}
+    <!--<div class="input-group input-group-lg">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Large</span>
+        </div>
+        <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+    </div>-->
+    <form action="{% url 'submit' %} " method="get">
+        {% csrf_token %}
+        {{ query.as_p }}
+        <button >Submit</button>
+    </form>
 </body>
 </html>
