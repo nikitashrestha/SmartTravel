@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from .models import query
 
 class index(TemplateView):
-    template_name="Query/search_page.html"
+    template_name="Query/search_partA.html"
     q = query() #create an instance
     def get(self, request):
         return render(request, self.template_name, {'query': self.q})
@@ -19,11 +19,11 @@ class submit(TemplateView):
 '''
 def submit(request):
     if request.method=='POST':
-        template_name="Query/result.html"
+        template_name="Query/result_partA.html"
         q=query(request.POST)
         if q.is_valid():
             return render(request, template_name, {'result': q})
     else:
         q=query()
-        template_name="Query/result.html"
+        template_name="Query/search_partA.html"
         return render(request, template_name, {'result':q})

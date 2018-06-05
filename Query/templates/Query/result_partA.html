@@ -1,0 +1,5 @@
+{% extends 'Query/result_base.html' %}
+{% block Result%}
+<h1>hey you {{ result.data.latlng}} and {{ result.data.address}}</h1>
+<div class="container" id="map"></div>
+{% endblock %}

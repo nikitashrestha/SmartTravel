@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/map.css ' %}" type="text/css">
     <script src="{% static 'js/map.js' %}"></script>
 </head>
-<body onload="MyMap();">
+<body >
     {% block Result%}{% endblock%}
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqiyBwAlNggnQks2Bo72k_bee018npngM&callback=MyMap"></script>
 </body>

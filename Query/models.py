@@ -4,7 +4,8 @@ from django import forms
 
 #query form
 class query(forms.Form):
-    input=forms.CharField(label='Search: ', max_length=50)
+    latlng=forms.CharField(label='LatLng: ')
+    address=forms.CharField(label='Address: ')
 
 
 class UserQuery(models.Model):

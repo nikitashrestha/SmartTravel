@@ -1,0 +1,64 @@
+{% extends 'Query/search_base.html' %}
+{% block Search %}
+<div class="container-fluid">
+    <div class="container" id="search_nav_bar">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">LogOut</a>
+          </li>
+        </ul>
+    </div>
+<!--
+    <form action="{% url 'submit' %}" method="Post">
+        {% csrf_token %}
+        {{ query.non_field_errors }}
+
+                        <div class="fieldWrappers" id="map">
+                            {{query.latlng.errors}}
+                            {{form.subject.label_tag}}
+                            <!-- to get id and name for the fields :-
+                                <p>
+                                    <label for="id_cc_myself">Cc myself:</label>
+                                    <input type="checkbox" name="cc_myself" id="id_cc_myself" />
+                                </p>
+                                field: id_(field-name assigned in model)
+                                name: (field-name)
+                                //space is replaced by underscore
+
+                            {{query.latlng}}
+                            <button class="btn btn-info" type="button">Go</button>
+                        </div>
+    </form>
+-->
+<!--
+    <div id="search_box">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-7">
+                <h2 class="text-center">SmartTravel</h2>
+                <div class="input-group ">
+                    <input type="text" class="form-control" id="search_input" placeholder="Input Query" aria-label="Search" aria-describedby="basic-addon2">
+                     <div class="input-group-append">
+                        <button class="btn btn-info" type="button">Go</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+    <form action="{% url 'submit' %} " method="post">
+        {% csrf_token %}
+        {{ query.as_table }}
+        <button>Submit</button>
+    </form>
+
+{% endblock %}
