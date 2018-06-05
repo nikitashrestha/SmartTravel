@@ -25,5 +25,5 @@ def submit(request):
             return render(request, template_name, {'result': q})
     else:
         q=query()
-        template_name="Query/search_page.html"
+        template_name="Query/index.html"
         return render(request, template_name, {'result':q})

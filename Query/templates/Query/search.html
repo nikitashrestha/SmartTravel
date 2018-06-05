@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Search</title>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/search.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+</head>
+<body class="body" >
+<div class="container-fluid">
+    <div class="container" id="search_nav_bar">
+        <ul class="nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Search</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">News</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link " href="#">LogOut</a>
+          </li>
+        </ul>
+    </div>
+    <div id="search_box">
+        <div class="row">
+            <div class="col-sm-7 col-sm-offset-7">
+                <h2 class="text-center">SmartTravel</h2>
+                <div class="input-group ">
+                    <!--<form action="{% url 'submit' %} " method="post">
+                        {% csrf_token %}
+                        {{ query.as_media }}
+                        <button >Submit</button>
+                    </form>-->
+                    <input type="text" class="form-control" id="search_input" placeholder="Input Query" aria-label="Search" aria-describedby="basic-addon2">
+                     <div class="input-group-append">
+                        <button class="btn btn-info" type="button">Go</button>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+   <!-- <form action="{% url 'submit' %} " method="post">
+        {% csrf_token %}
+        {{ query.as_p }}
+        <button >Submit</button>
+    </form> -->
+
+
+</body>
+</html>

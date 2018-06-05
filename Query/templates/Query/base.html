@@ -1,0 +1,31 @@
+<!-- Base.html for Search Result -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Search</title>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/map.css ' %}" type="text/css">
+</head>
+<body onload="MyMap()">
+    <div class="container-fluid border-info">
+                <h2>Search input is : {{result.data.input}}</h2>
+        <div id="map"></div>
+        <h3 id="check"></h3>
+<script>
+    function MyMap()
+        {
+            var map_properties={
+                center: new google.maps.LatLng(51.508742,-0.120850),
+                zoom:19,
+            };
+            var map= new google.maps.Map(document.getElementById('map'), map_properties);
+            document.getElementById('check').innerHTML="Map ";
+        }
+</script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqiyBwAlNggnQks2Bo72k_bee018npngM&callback=MyMap"></script>
+
+    </div>
+</body>
+</html>

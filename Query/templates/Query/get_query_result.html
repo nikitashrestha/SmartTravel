@@ -1,9 +1,0 @@
-{% extends "Query/index.html" %}
-{% load staticfiles %}
-{% block Result %}
-        <h2>Search input is : {{result.data.input}}</h2>
-        <div id="map" class="container"></div>
-        <h3 id="check"></h3>
-    <script src="{% static 'js/map.js' %}"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqiyBwAlNggnQks2Bo72k_bee018npngM&callback=MyMap"></script>
-{% endblock%}

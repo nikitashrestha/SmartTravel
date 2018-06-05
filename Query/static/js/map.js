@@ -5,5 +5,5 @@ function MyMap()
         zoom:13,
     };
     var map= new google.maps.Map(document.getElementById('map'), map_properties);
-    document.getElementById('check').innerHTML="Hhahahha";
+    document.getElementById('check').innerHTML="Map ";
 }
