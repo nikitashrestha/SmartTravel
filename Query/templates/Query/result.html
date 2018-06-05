@@ -1,2 +1,7 @@
-<!-- part.html for Search Result -->
+{% extends 'Query/base.html' %}
+{% load staticfiles %}
 
+{% block Result%}
+<h1>hey you {{ result.data.input}}</h1>
+<div class="container" id="map"></div>
+{% endblock %}

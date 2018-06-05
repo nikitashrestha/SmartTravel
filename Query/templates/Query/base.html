@@ -7,25 +7,10 @@
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/map.css ' %}" type="text/css">
+    <script src="{% static 'js/map.js' %}"></script>
 </head>
-<body onload="MyMap()">
-    <div class="container-fluid border-info">
-                <h2>Search input is : {{result.data.input}}</h2>
-        <div id="map"></div>
-        <h3 id="check"></h3>
-<script>
-    function MyMap()
-        {
-            var map_properties={
-                center: new google.maps.LatLng(51.508742,-0.120850),
-                zoom:19,
-            };
-            var map= new google.maps.Map(document.getElementById('map'), map_properties);
-            document.getElementById('check').innerHTML="Map ";
-        }
-</script>
+<body onload="MyMap();">
+    {% block Result%}{% endblock%}
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqiyBwAlNggnQks2Bo72k_bee018npngM&callback=MyMap"></script>
-
-    </div>
 </body>
 </html>

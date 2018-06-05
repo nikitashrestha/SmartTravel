@@ -19,11 +19,11 @@ class submit(TemplateView):
 '''
 def submit(request):
     if request.method=='POST':
-        template_name="Query/get_query_result.html"
+        template_name="Query/result.html"
         q=query(request.POST)
         if q.is_valid():
             return render(request, template_name, {'result': q})
     else:
         q=query()
-        template_name="Query/index.html"
+        template_name="Query/result.html"
         return render(request, template_name, {'result':q})
