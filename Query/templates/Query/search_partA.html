@@ -12,12 +12,19 @@
           <li class="nav-item">
             <a class="nav-link" href="#">News</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#">LogOut</a>
-          </li>
+
+          {% if user.is_authenticated %}
+              <strong>{{ user.username }}</strong>,
+            <li class="nav-item"><a class="nav-link " href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item"><a href="{% url 'register' %}">Register</a></li>
+            <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
     </div>
 <!--
+
     <form action="{% url 'submit' %}" method="Post">
         {% csrf_token %}
         {{ query.non_field_errors }}
@@ -54,6 +61,9 @@
         </div>
     </div>
 </div>-->
+
+
+    <div><h3><a href="{% url 'register' %}">Register here </a>your new account.</h3></div><br>
 
     <form action="{% url 'submit' %} " method="post">
         {% csrf_token %}

@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
 </head>
 <body class="body" >
+
+<h2><a href="{% url 'index' %}">Home</a></h2>
+
 {% block Search %}{% endblock %}
+
+{% block body %} {% endblock %}
 
 </body>
 </html>
