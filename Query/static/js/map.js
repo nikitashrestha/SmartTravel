@@ -17,7 +17,7 @@ function MyMap()
 
     var currentLocationCirle = new google.maps.Circle({
         center: init_coord,
-        radius: 150000,
+        radius: 500,
         strokeColor: "#B42424",
         strokeOpacity: 0.5,
         //strokeWeight: 2,
@@ -38,7 +38,7 @@ function MyMap()
     //Zooms when clicked on marker
     google.maps.event.addListener(marker, 'click', function() {
        //map.setZoom(map.getZoom() + 5);
-        map.setZoom(20);
+        map.setZoom(16);
         map.setCenter(marker.getPosition());
     });
 
