@@ -1,0 +1,15 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+
+</head>
+<body onload="Initialize();">
+<script src="{% static 'js/test.js' %}"></script>
+{{test_var}}
+<button id="test_button" >Go</button>
+<h1 id="test_var"></h1>
+</body>
+</html>

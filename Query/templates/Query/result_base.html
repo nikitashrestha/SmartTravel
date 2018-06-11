@@ -1,16 +1,16 @@
 <!-- Base.html for Search Result -->
+{% load staticfiles %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <title>Search</title>
+    <title>Result</title>
     <meta charset="UTF-8">
-    {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'css/map.css ' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/map.css' %}" type="text/css">
     <script src="{% static 'js/map.js' %}"></script>
 </head>
-<body >
-    {% block Result%}{% endblock%}
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDqiyBwAlNggnQks2Bo72k_bee018npngM&callback=MyMap"></script>
+<body>
+
 </body>
 </html>

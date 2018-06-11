@@ -1,5 +1,11 @@
-{% extends 'Query/result_base.html' %}
+{% extends 'Query/search_base.html' %}
+{%load staticfiles%}
+
 {% block Result%}
-<h1>hey you {{ result.data.latlng}} and {{ result.data.address}}</h1>
-<div class="container" id="map"></div>
+<div class="container-fluid">
+    <h2>This is result</h2>
+    <div class="container">
+        <div id="map"></div>
+    </div>
+</div>
 {% endblock %}
