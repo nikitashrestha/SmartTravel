@@ -14,14 +14,26 @@
           <li class="nav-item">
             <a class="nav-link" href="#">News</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="#">LogOut</a>
-          </li>
+
+          {% if user.is_authenticated %}
+              <strong>{{ user.username }}</strong>,
+            <li class="nav-item"><a class="nav-link " href="{% url 'logout' %}">Logout</a>
+            </li>
+          {% else %}
+            <li class="nav-item"><a href="{% url 'register' %}">Register</a></li>
+            <li class="nav-item"><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
         </ul>
     </div>
+<<<<<<< HEAD
 </div>
 
  <form action="" method="Post">
+=======
+<!--
+
+    <form action="{% url 'submit' %}" method="Post">
+>>>>>>> 981ebf1d0071791c2da699f83e2d563800f7169c
         {% csrf_token %}
         {{ query.non_field_errors }}
         <fieldset class="fieldset">
@@ -33,7 +45,21 @@
                     {{ query.address}}
                 </div>
             </div>
+<<<<<<< HEAD
         </fieldset>
         <input id="submit" type="submit" value="Submit"/>
+=======
+        </div>
+    </div>
+</div>-->
+
+
+    <div><h3><a href="{% url 'register' %}">Register here </a>your new account.</h3></div><br>
+
+    <form action="{% url 'submit' %} " method="post">
+        {% csrf_token %}
+        {{ query.as_table }}
+        <button>Submit</button>
+>>>>>>> 981ebf1d0071791c2da699f83e2d563800f7169c
     </form>
 {% endblock %}
