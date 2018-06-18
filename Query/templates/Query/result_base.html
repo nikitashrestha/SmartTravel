@@ -1,16 +1,37 @@
-<!-- Base.html for Search Result -->
 {% load staticfiles %}
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Result</title>
+    <title>Map</title>
     <meta charset="UTF-8">
+
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/map.css' %}" type="text/css">
-    <script src="{% static 'js/map.js' %}"></script>
-</head>
-<body>
+    <script src="{% static 'js/jquery-1.11.3.min.js' %}"></script>
 
+
+</head>
+
+<body>
+<input type="button" id="button" value="Go" >
+<h1 id="lat">{{lat}}</h1>
+<h1 id="lng">{{long}}</h1>
+<div id="map"></div>
+
+
+
+<script>
+
+    function initMap()
+    {
+        var map;
+        var init_coord = {lat: {{lat}}, lng: {{long}}};
+        map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: init_coord});
+        var marker = new google.maps.Marker({position: init_coord, map: map});
+    }
+
+
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCR6lpJbjqHbzTjf_u1cUDypWPaHcsuFYA&callback=initMap"></script>
 </body>
 </html>

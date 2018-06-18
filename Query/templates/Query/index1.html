@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css">
+</head>
+
+<body>
+<div class="container-fluid" id="search_body">
+    <div class="container" id="search_nav">
+        <div class="container-fluid">
+            <div class="container" id="search_nav_bar">
+                <ul class="nav justify-content-end">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">blahblah</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Settings</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Blahblah</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container" id="search_box">
+        <form method="Post" action=" " >
+            {% csrf_token %}
+            {{ form.address }}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% block IndexRecommendations %} {% endblock%}
+</div>
+
+</body>
+</html>

@@ -40,7 +40,9 @@ INSTALLED_APPS = [
 
     #Custom Apps
     'Query.apps.QueryConfig',
+    'Index.apps.IndexConfig',
     'Blog.apps.BlogConfig',
+
 #    'Users.apps.UsersConfig',
 
     #django-dajax configurations

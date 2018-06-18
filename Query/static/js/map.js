@@ -1,23 +1,23 @@
 var geocoder; // convert geoaddress into latlng code
 var map;
-var address=document.getElementById('id_address').value;
-var geocoder;
+
+//Initial callback for map
 function MyMap()
 {
-    var init_coord={lat: 27.6828417, lng: 85.3200053};
+    var init_coord={lat: 27.6828417, lng: 85.3200053}; // pulchowk ko coordinate
     map_properties={
         center: init_coord,
-        zoom:14,
+        zoom:11,
     };
-<<<<<<< HEAD
     map= new google.maps.Map(document.getElementById('map'), map_properties);
     var marker = new google.maps.Marker({position: init_coord, map: map});
 }
+
 function Initialize()
 {
-    geocoder=new google.maps.Geocoder();
-    document.getElementById("submit").addEventListener('click', Geocode());
-=======
+    var geocoder=new google.maps.Geocoder();
+    document.getElementById("id_address").addEventListener('click', Geocode());
+
     var map= new google.maps.Map(document.getElementById('map'), map_properties);
 
     var marker = new google.maps.Marker({
@@ -72,7 +72,6 @@ function Initialize()
             map: map
         });
     });
->>>>>>> 981ebf1d0071791c2da699f83e2d563800f7169c
 
 }
 
@@ -85,7 +84,7 @@ function Geocode()
         map.setCenter(results[0].geometry.location);
         var marker= new google.maps.Marker(
         {
-            map: map;
+            map: map,
             position: results[0].geometry.location
         });
         else
@@ -94,4 +93,42 @@ function Geocode()
         }
     }
     });
-}*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.getElementById('button').addEventListener('click', function()
+  {
+        document.alert("hey you are inside Geocode ");
+        var address="jhapa";
+        geocoder.geocode({'address': address}, function(results, status){
+        if(status=='OK')
+        {
+            map.setCenter(results[0].geometry.location);
+            var marker= new google.maps.Marker(
+            {
+                map: map,
+                position: results[0].geometry.location
+            });
+         }
+         else
+         {
+             alert('geocode Unsuccessful.');
+         }
+    });
+  });

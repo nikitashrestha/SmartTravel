@@ -1,11 +1,12 @@
-{% extends 'Query/search_base.html' %}
-{%load staticfiles%}
-
-{% block Result%}
-<div class="container-fluid">
-    <h2>This is result</h2>
-    <div class="container">
-        <div id="map"></div>
-    </div>
-</div>
+{% extends 'Query/result_base.html' %}
+{% load staticfiles %}
+{% block js %}
+<script>
+    function initMap()
+    {
+        var init_coord = {lat: {{lat}}, lng: {{long}}};
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: init_coord});
+        var marker = new google.maps.Marker({position: init_coord, map: map});
+    }
+</script>
 {% endblock %}

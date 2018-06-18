@@ -7,23 +7,42 @@ import simplejson as json
 
 
 class search(TemplateView):
-    template_name="Query/search_base.html"
+    template_name="Query/result_base.html"
     q = query_form() #create an instance
     def get(self, request):
-        return render(request, self.template_name, {'query': self.q})
+        return render(request, self.template_name, {'form': self.q})
 
 '''
-def index(request):
-    if request.method=='POST':
-        template_name="Query/result_partA.html"
-        q=query(request.POST)
-        if q.is_valid():
-            return render(request, template_name, {'result': q})
-    else:
-        q=query()
-        template_name="Query/search_partA.html"
-        return render(request, template_name, {'query':q})
+class index(TemplateView):
+    template_name="Query/index.html"
+    q = query_form() #send context for verifications in html
+    def get(self, request):
+        return render(request, self.template_name, {'form': self.q})
+    def post(self, request):
+        template_name="Query/search_result.html"
+        user_input=query_form(request.POST)
+        if user_input.is_valid():
+            user_input.save()
+        return render(request, self.template_name, {'result': user_input})
+'''
 
+def index(request):
+    q = query_form()
+    if request.method=='GET':
+        template_name="Query/index.html"
+        return render(request, template_name)
+    else:
+        r = query_form(request.POST)
+        r.save()
+        template_name="Query/search_result.html"
+        return render(request, template_name, {'result':r})
+
+def result(request):
+    lat=27.679319
+    lng=85.316809
+    template_name="Query/result_base.html"
+    return render(request, template_name, {'lat':lat, 'long': lng})
+'''
 def test(request):
     template_name = "Query/test.html"
     if request.method=="POST":
@@ -39,7 +58,7 @@ def d_search(request):
     form = query()
     return render(request, 'Query/search_base.html', locals())
 
-'''
+
 
 #ajax integration
 def create_post(request):
@@ -62,3 +81,5 @@ def create_post(request):
             json.dumps({"nothing to see": "this isn't happening"}),
             content_type="application/json"
         )
+    
+    '''

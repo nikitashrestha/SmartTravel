@@ -1,0 +1,6 @@
+ function initMap()
+    {
+        var init_coord = {lat: {{lat}}, lng: {{long}}};
+        var map = new google.maps.Map(document.getElementById('map'), {zoom: 16, center: init_coord});
+        var marker = new google.maps.Marker({position: init_coord, map: map});
+    }
