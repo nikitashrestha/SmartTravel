@@ -1,61 +1,73 @@
+{% extends 'Blog/base.html' %}
 {% load staticfiles %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+{% block content %}
 
-    <title>Blog Home </title>
+  {% if user.is_authenticated %}
+<div class="container">
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'  %}" rel="stylesheet">
+    <!-- sidenav-->
+    <div id="mySidenav" class="sidenav ">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">Profile</a>
+        <a href="#">Your Blog</a>
+        <a href="#">Tour Diary </a>
+        <a href="#">Followers</a>
+        <a href="#">Followings</a>
+    </div>
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/blog-home.css' %} " rel="stylesheet">
 
-  </head>
 
-  <body>
+<div id="main">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Home</a>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">GoTour</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Settings</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">LogOut</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="row">
+            <div class="col-2" id="left_nav">
+                <div class="container" id="nav_container">
+                    <div class="row">
+                        <div class="col-6" >
+                            <img id="profile"  class="card-img-left border" src="{% static 'images/shristi.jpg' %}" style="width:56px; border-radius: 50%" alt="profile" >
+                        </div>
+                            <div class="col-6" >
+                                <!-- Use any element to open the sidenav -->
+                                <a href="#" onclick="openNav()" ><p class="h3"><small class="text-muted"> Profile </small></p></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10" id="right_nav">
+                <div class="container "  id="nav_container" >
+                      <div class="collapse navbar-collapse" id="navbarResponsive" >
+                          <ul class="navbar-nav ml-auto" id="top_nav_bar">
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/blog">Home
+                                    <span class="sr-only">(current)</span>
+                                  </a>
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/query">GoTour</a><!-- go to query/index.html page  defined in Query app-->
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="settings">Settings</a>
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/index/logout">LogOut</a><!-- logout url pattern defined in Index app -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
 
     <!-- Page Content -->
     <div class="container">
-
-      <div class="row">
-
+        <div class="row">
         <!-- Blog POST Column -->
         <div class="col-md-8">
-
-          <h1 class="my-4">Shristi
-            <small>Neewsfeed</small>
-          </h1>
-
 
           <!-- Blog Post One -->
           <div class="card">
@@ -174,11 +186,12 @@
       </div>
       <!-- /.container -->
     </footer>
+    </div>
+    </div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
-    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+    {% else %}
+    <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
+    <p><a href="/index/register">Register</a></p>
+    {% endif %}
 
-  </body>
-
-</html>
+{% endblock %}

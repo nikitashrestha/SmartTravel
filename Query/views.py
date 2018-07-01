@@ -5,6 +5,7 @@ from .forms import query_form
 from .models import query_db
 import simplejson as json
 
+#API key : AIzaSyDWutG13sRy5UuxapLhu8KKGQLFwtAH-UE
 
 class search(TemplateView):
     template_name="Query/result_base.html"
@@ -27,9 +28,8 @@ class index(TemplateView):
 '''
 
 def index(request):
-    q = query_form()
     if request.method=='GET':
-        template_name="Query/index.html"
+        template_name="Query/portfolio-item.html"
         return render(request, template_name)
     else:
         r = query_form(request.POST)
@@ -53,12 +53,7 @@ def test(request):
         context={'test_var': var }
         return render(request, template_name, context)
 
-#dajax use gareko
-def d_search(request):
-    form = query()
-    return render(request, 'Query/search_base.html', locals())
-
-
+'''
 
 #ajax integration
 def create_post(request):
@@ -79,7 +74,5 @@ def create_post(request):
     else:
         return HttpResponse(
             json.dumps({"nothing to see": "this isn't happening"}),
-            content_type="application/json"
+              content_type="application/json"
         )
-    
-    '''
