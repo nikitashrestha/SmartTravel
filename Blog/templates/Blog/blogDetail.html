@@ -1,0 +1,30 @@
+{% extends 'Blog/base.html' %}
+
+{% block content %}
+
+    <h2>{{ blog.title }} </h2>
+
+    <p>{{ blog.content }}</p>
+
+    <button type="button" class="btn btn-primary">
+      Likes <span class="badge badge-light">{{ blog.likes }}</span>
+      <span class="sr-only">blog likes</span>
+    </button>
+
+    <button type="button" class="btn btn-primary">
+      Dislikes <span class="badge badge-light">{{ blog.dislikes }}</span>
+      <span class="sr-only">blog dislikes</span>
+    </button>
+
+    <br>
+    <div>
+    <h4>Comments:</h4>
+    <ul>
+        {% for comment in blog.blogcomment_set.all %}
+            <li>{{ comment.date_pub }}<br>{{ comment.content }}</li>
+            <br>
+        {% endfor %}
+    </ul>
+    </div>
+
+{% endblock %}
