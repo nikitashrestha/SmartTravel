@@ -60,7 +60,7 @@ $("#id_address").on('change', function (event )
           Create_post(input);
       });
 });
-*/
+/* important
 
 document.getElementById('id_address').addEventListener('change', function()
 {
