@@ -1,3 +1,4 @@
+'''
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
@@ -41,7 +42,7 @@ class Query(models.Model):
     date=models.DateField(null=True)
 
 
-'''
+
 class Result(models.Model):
     #what are to be saved in db ??
 
@@ -54,7 +55,6 @@ e. Photos
 f. Rating
 g. Comment
 
-'''
 
 class Blog_Search(models.Model):
     writer_id=models.IntegerField() # user instance deletion is blocked
@@ -66,4 +66,4 @@ class Blog_Search(models.Model):
 
 
 
-
+'''
