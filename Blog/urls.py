@@ -8,3 +8,8 @@ urlpatterns=[
     url(r'^$', views.index,name="index" ),
     url(r'^settings/$', views.settings,name="settings" ),
 ]
+
+urlpatterns+=[
+    url(r'^$', views.index, name="index" ),
+    url(r'^blogDetail/(?P<blogId>\d+)/', views.blogDetail, name='blogDetail')
+]
