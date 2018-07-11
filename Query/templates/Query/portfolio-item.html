@@ -59,61 +59,53 @@
 
     <!-- Page Content -->
     <div class="container">
+          <div class="row">
+              <div class="col-9"><div class="container" id="map"></div></div>
+              <div class="col-3">
+                      <div class="row">
+                          <div class="col">
 
-      <!-- Portfolio Item Row -->
-      <div class="row">
-        <!--
-        <div class="col-md-4">
-          <!-- Page Heading/Breadcrumbs
-          <h1 class="heading-h3">Title of search</h1>
-          <h3 class="my-3">Project Description</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.</p>
-          <h3 class="my-3">Project Details</h3>
-          <ul>
-            <li>Lorem Ipsum</li>
-            <li>Dolor Sit Amet</li>
-            <li>Consectetur</li>
-            <li>Adipiscing Elit</li>
-          </ul>
-        </div>-->
+                                <select id="category">
+                                  <option value="amusement_park">Park</option>
+                                  <option value="art_gallery">Art Gallery</option>
+                                  <option value="atm">ATM</option>
+                                  <option value="bakery">Bakery</option>
+                                  <option value="book_store">Book Store</option>
+                                  <option value="bowling_alley">Bowling Alley</option>
+                                  <option value="cafe">cafe</option>
+                                  <option value="campground">Camp Ground</option>
+                                  <option value="casino">Casino</option>
+                                  <option value="hindu_temple">Hindu Temples</option>
+                                  <option value="hospital">Hospital</option>
+                                  <option value="zoo">Zoo</option>
+                                  <option value="restaurant">Restaurant</option>
+                                  <option value="parking">Parking</option>
+                                  <option value="museum">Museum</option>
+                                  <option value="night_club">NightClub</option>
+                                  <option value="lodging">Lodging</option>
+                                </select>
+                          </div>
+                      </div>
+                      <div class="row">
+                          <div class="col">
+                              <!-- Directions here-->
+                              <select id="mode" >
+                                <option value="DRIVING">Driving</option>
+                                <option value="WALKING">Walking</option>
+                                <option value="BICYCLING">Bicycling</option>
+                                <option value="TRANSIT">Transit</option>
+                              </select>
 
-        <!-- here we are-->
+                          </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
 
-      <div class="col-md-8">
-          <!--
-         #Geocoding here
-          <input type="text" id="address" placeholer="Geocoding here">
-          <input type="button" value="GO" id="button" onclick=" codeAddress();">
-          -->
-          <!-- Directions here-->
-          <div>
-          <strong>Mode of Travel: </strong>
-              <select id="mode" >
-                <option value="DRIVING">Driving</option>
-                <option value="WALKING">Walking</option>
-                <option value="BICYCLING">Bicycling</option>
-                <option value="TRANSIT">Transit</option>
-              </select>
-          </div>
-            <input type="text" id="start" placeholder="From">
-            <input type="text" id="end" placeholder="To">
-            <input type="button" value="GO" id="button">
-
-            <div class="container" id="map"></div>
-            <div id="right-panel"></div>
-        <form method="Post" id="form"  >
-          {% csrf_token %}
-          <input type="text" id="id_address" placeholder="Type here...">
-          <input type="submit" id="search" value="GO" >
-        </form>
-        <div id="results"></div>
-
-        </div>
-      </div>
       <!-- /.row -->
 
       <!-- Related Projects Row -->
-      <h3 class="my-4">Related Projects</h3>
+      <h3 class="my-4">Outputs</h3>
 
       <div class="row">
 
@@ -144,8 +136,6 @@
       </div>
       <!-- /.row -->
 
-    </div>
-    <!-- /.container -->
 
     <!-- Footer -->
     <footer class="py-5 bg-dark">
