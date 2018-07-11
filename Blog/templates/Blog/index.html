@@ -2,7 +2,6 @@
 {% load staticfiles %}
 {% block content %}
 
-  {% if user.is_authenticated %}
 <div class="container">
 
     <!-- sidenav-->
@@ -68,6 +67,15 @@
     </div>
 
 
+    <div class="float-left">
+    <br>
+    <!--new post-->
+    <p><a class="btn btn-outline-primary" href="{% url 'Blog:new_post' %}">create a new post</a></p>
+    <br>
+    <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
+    <p><a href="/index/register">Register</a></p>
+    </div>
+
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -81,43 +89,23 @@
             <div class="card-body">
               <h2 class="card-title">{{ blog.title }}</h2>
               <p class="card-text">{{ blog.content }}</p>
-              <a href="{% url 'blogDetail' blog.id %}" class="btn btn-primary">Read More &rarr;</a>
+              <a href="{% url 'Blog:blogDetail' blog.id %}" class="btn btn-primary">Read More &rarr;</a>
+
+              {% if blog.owner != user %}
+                <a href="{% url 'Blog:edit_post' blog.id %}" class="btn btn-dark card-link">Edit Post &rarr;</a>
+                <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-dark">Delete Post</a>
+              {% else %}
+                <a href="{% url 'Blog:edit_post' blog.id %}" class="btn btn-primary card-link">Edit Post &rarr;</a>
+                <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-warning">Delete Post</a>
+              {% endif %}
             </div>
             <div class="card-footer text-muted">
               Posted on {{ blog.date_pub.date }} by
-              <a href="#">Shishir Bhandari</a>
+              <a href="#">{{ blog.owner }}</a>
             </div>
           </div>
 
 {% endfor %}
-
-          <!-- Blog Post Two -->
-          <div class="card">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-            <div class="card-body">
-              <h2 class="card-title">Title_One</h2>
-              <p class="card-text">Content here</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Shristi Shrestha</a>
-            </div>
-          </div>
-
-          <!-- Blog Post Three -->
-          <div class="card">
-            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
-            <div class="card-body">
-              <h2 class="card-title">Title_One</h2>
-              <p class="card-text">Content here</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
-            </div>
-            <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Shristi Shrestha</a>
-            </div>
-          </div>
 
           <!-- Pagination -->
           <ul class="pagination justify-content-center mb-4">
@@ -197,9 +185,8 @@
     </div>
     </div>
 
-    {% else %}
+
     <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
     <p><a href="/index/register">Register</a></p>
-    {% endif %}
 
 {% endblock %}

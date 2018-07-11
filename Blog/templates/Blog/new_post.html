@@ -1,0 +1,21 @@
+{% extends 'Blog/base.html' %}
+
+{% block header %}
+
+    <br>
+	<h4 class="lead">Create a new post:</h4>
+	<hr class="my-4">
+
+{% endblock %}
+
+{% block content %}
+
+	<form action="{% url 'Blog:new_post' %}" method="post" class="form">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+		<button class="btn btn-primary" name="submit">add post</button>
+
+	</form>
+
+{% endblock content %}
