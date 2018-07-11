@@ -18,14 +18,20 @@
 
   </head>
   <body>
+    {% if user.is_authenticated %}
+    {% block header %}
+    {% endblock %}
 
-  {% block header %}
-  {% endblock %}
-
- {% block content %}
- {% endblock %}
- <!-- Bootstrap core JavaScript -->
+    {% block content %}
+    {% endblock %}
+    <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+    {% else %}
+    <p><a href="/index/login">Login</a></p><!-- go back to 'index/index.hmtl' page-->
+    <p><a href="/index/register">Register</a></p>
+    {% endif %}
+
   </body>
 </html>

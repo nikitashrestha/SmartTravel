@@ -82,10 +82,10 @@ SOCIAL_AUTH_GOOGLE_PLUS_SCOPE = [
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='887968215094-tvuij35s8i0faqahqvssmtg9ltg1pett.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '63CrZ75ydvxXSUG5SnZr4RyO'
-'''LOGIN_URL = 'login'
+LOGIN_URL = 'login'
 LOGOUT_URL='logout'
 LOGIN_REDIRECT_URL='index'
-'''
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

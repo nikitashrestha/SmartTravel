@@ -46,15 +46,12 @@ function initMap(){
          }
 
         /* after rendering map, wait for events to trigger*/
-        //for places
+  //for places
    var Place = function()
     {
         Search_Places(current_location);
     };
-    document.getElementById('category').addEventListener('change', Place);
-
-   /* click event on map*/
-   /* Find direction between start and destination */
+    document.getElementById('category').addEventListener('change', Place);  
 
  }
 
@@ -115,8 +112,13 @@ function createMarker(place)
         infoWindow.setPosition(marker);
         infoWindow.setContent('You are here...');
         infoWindow.open(map);
-        calculateAndDisplayRoute(directionsService, directionsDisplay, current_location, placeLoc);
+        direction();
+        
     });
+    var direction =function(){
+      calculateAndDisplayRoute(directionsService, directionsDisplay, current_location, placeLoc);
+    }
+    document.getElementById('mode').addEventListener('change', direction);
 }
 
 
