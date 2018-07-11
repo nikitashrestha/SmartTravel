@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 
 #exteded custom user model here
-AUTH_USER_MODEL='Database.User'
+#AUTH_USER_MODEL='Database.User'
 
 #Some other dependencies
 AUTHENTICATION_BACKENDS = (

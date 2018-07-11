@@ -51,6 +51,11 @@
                                 <li class="nav-item active">
                                   <a class="nav-link" href="settings">Settings</a>
                                 </li>
+
+                              <li class="nav-item active" style="color: white;">
+                                  <span>{{user.username}}</span><!-- logout url pattern defined in Index app -->
+                                </li>
+
                                 <li class="nav-item active">
                                   <a class="nav-link" href="/index/logout">LogOut</a><!-- logout url pattern defined in Index app -->
                                 </li>
@@ -69,19 +74,22 @@
         <!-- Blog POST Column -->
         <div class="col-md-8">
 
-          <!-- Blog Post One -->
+{% for blog in blogPosts %}
+          <!-- Blog Posts -->
           <div class="card">
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
-              <h2 class="card-title">Title_One</h2>
-              <p class="card-text">Content here</p>
-              <a href="#" class="btn btn-primary">Read More &rarr;</a>
+              <h2 class="card-title">{{ blog.title }}</h2>
+              <p class="card-text">{{ blog.content }}</p>
+              <a href="{% url 'blogDetail' blog.id %}" class="btn btn-primary">Read More &rarr;</a>
             </div>
             <div class="card-footer text-muted">
-              Posted on January 1, 2017 by
-              <a href="#">Shristi Shrestha</a>
+              Posted on {{ blog.date_pub.date }} by
+              <a href="#">Shishir Bhandari</a>
             </div>
           </div>
+
+{% endfor %}
 
           <!-- Blog Post Two -->
           <div class="card">
