@@ -13,14 +13,12 @@ urlpatterns=[
 ]
 
 urlpatterns+=[
-<<<<<<< HEAD
     url(r'^blogDetail/(?P<blogId>\d+)/', views.blogDetail, name='blogDetail')
-=======
     url(r'^$', views.index, name="index" ),
     url(r'^blogDetail/(?P<blogId>\d+)/', views.blogDetail, name='blogDetail'),
 
     path('new_post/', views.new_post, name='new_post'),
     path('edit_post/<blogpost_id>', views.edit_post, name='edit_post'),
     path('delete_post/<blogpost_id>', views.delete_post, name='delete_post'),
->>>>>>> e67131f2cb92bfd93027e0113207e8f188eb3efe
+
 ]
