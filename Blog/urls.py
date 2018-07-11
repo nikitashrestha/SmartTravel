@@ -10,6 +10,5 @@ urlpatterns=[
 ]
 
 urlpatterns+=[
-    url(r'^$', views.index, name="index" ),
     url(r'^blogDetail/(?P<blogId>\d+)/', views.blogDetail, name='blogDetail')
 ]
