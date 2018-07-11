@@ -21,11 +21,12 @@
 
 
   </head>
-<body onload="initialize()">
+<body onload="initialize();">
+
+<script src="{% static 'js/test.js' %}"></script>
 {% block content %}{% endblock %}
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWutG13sRy5UuxapLhu8KKGQLFwtAH-UE&libraries=places&callback=initMap"></script>
 
-<script src="{% static 'js/test.js' %}"></script>
 
  <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
