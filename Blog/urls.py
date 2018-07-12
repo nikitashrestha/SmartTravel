@@ -8,7 +8,6 @@ from Index.views import index as i
 app_name = "Blog"
 
 urlpatterns=[
-    url(r'^$', views.index,name="index" ),
     url(r'^settings/$', views.settings, name="settings"),
 ]
 
@@ -19,4 +18,5 @@ urlpatterns+=[
     path('new_post/', views.new_post, name='new_post'),
     path('edit_post/<blogpost_id>', views.edit_post, name='edit_post'),
     path('delete_post/<blogpost_id>', views.delete_post, name='delete_post'),
+    path('simple_search/', views.simple_search, name='simple_search'),
 ]

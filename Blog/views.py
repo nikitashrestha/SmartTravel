@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .models import BlogPost
 from .forms import BlogPostForm
+from .simle_search import get_query
 
 # Create your views here.
 
@@ -78,3 +79,18 @@ def delete_post(request, blogpost_id):
         blogpost.delete()
 
     return redirect('Blog:index')
+
+
+@login_required
+def simple_search(request):
+    query_string = ''
+    found_entries = None
+    if ('q' in request.GET) and request.GET['q'].strip():
+        query_string = request.GET['q']
+
+        entry_query = get_query(query_string, ['title', 'content', ])
+
+        found_entries = BlogPost.objects.filter(entry_query).order_by('-date_pub')
+
+        context = {'query_string': query_string, 'found_entries': found_entries}
+    return render(request, 'Blog/search_results.html', context)

@@ -67,7 +67,7 @@
     </div>
 
 
-    <div class="float-left">
+    <div class="float-md-left">
     <br>
     <!--new post-->
     <p><a class="btn btn-outline-primary" href="{% url 'Blog:new_post' %}">create a new post</a></p>
@@ -76,6 +76,8 @@
     <p><a href="/index/register">Register</a></p>
     </div>
 
+
+<!--<div class="float-right"> -->
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -88,7 +90,7 @@
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title">{{ blog.title }}</h2>
-              <p class="card-text">{{ blog.content }}</p>
+              <p class="card-text">{{ blog.content|truncatechars:50 }}</p>
               <a href="{% url 'Blog:blogDetail' blog.id %}" class="btn btn-primary">Read More &rarr;</a>
 
               {% if blog.owner != user %}
@@ -96,7 +98,7 @@
                 <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-dark">Delete Post</a>
               {% else %}
                 <a href="{% url 'Blog:edit_post' blog.id %}" class="btn btn-primary card-link">Edit Post &rarr;</a>
-                <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-warning">Delete Post</a>
+                <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-default"><span class="glyphicon glyphicon-remove">Delete Post</span></a>
               {% endif %}
             </div>
             <div class="card-footer text-muted">
@@ -127,10 +129,10 @@
             <h5 class="card-header">Search </h5>
             <div class="card-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="People, Blogs">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
+                <form method="get" action="{% url 'Blog:simple_search' %}" accept-charset="utf-8" class="form-inline my-2 my-lg-0">
+					<input type="search" name="q" placeholder="Search blog" aria-label="Search" class="form-control mr-sm-2">
+					<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+				</form>
               </div>
             </div>
           </div>
@@ -178,15 +180,18 @@
     <!-- Footer -->
     <footer class="py-3 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Smart Travel (2018)</p>
+        <p class="m-0 text-center text-white" id="footer-copyright"></p>
+
       </div>
       <!-- /.container -->
     </footer>
     </div>
     </div>
 
-
-    <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
-    <p><a href="/index/register">Register</a></p>
+    <script>
+        var d = new Date();
+        document.getElementById("footer-copyright").innerHTML = "" +
+            "Copyright &copy; Smart Travel (" + d.getFullYear() + ")";
+    </script>
 
 {% endblock %}

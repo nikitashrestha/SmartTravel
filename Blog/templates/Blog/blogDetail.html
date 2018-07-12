@@ -2,9 +2,20 @@
 
 {% block content %}
 
+    <!-- Facebook Plugin -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.0';
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+
+
     <h2>{{ blog.title }} </h2>
 
-    <p>{{ blog.content }}</p>
+    <p>{{ blog.content|linebreaks }}</p>
 
     <button type="button" class="btn btn-primary">
       Likes <span class="badge badge-light">{{ blog.likes }}</span>
@@ -19,6 +30,15 @@
     <br>
     <div>
     <h4>Comments:</h4>
+
+    <!-- <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-numposts="5"></div> -->
+
+    <div class="fb-comments" data-href="https://smarttravel.com/blog/blogdetail/{{ blog.id }}" data-numposts="5"></div>
+
+
+        {% comment %} <div class="fb-comments" data-href="SmartTravel/Blog/blogDetail" data-numposts="8"></div>
+{% endcomment %}
+
     <ul>
         {% for comment in blog.blogcomment_set.all %}
             <li>{{ comment.date_pub }}<br>{{ comment.content }}</li>
