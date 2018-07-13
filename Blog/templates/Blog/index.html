@@ -17,6 +17,7 @@
 
 <div id="main">
     <!-- Navigation -->
+<<<<<<< HEAD
     <div class="class-nav">
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -48,8 +49,67 @@
           </div>
         </div>
       </nav>
+=======
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="row">
+            <div class="col-2" id="left_nav">
+                <div class="container" id="nav_container">
+                    <div class="row">
+                        <div class="col-6" >
+                            <img id="profile"  class="card-img-left border" src="{% static 'images/shristi.jpg' %}" style="width:56px; border-radius: 50%" alt="profile" >
+                        </div>
+                            <div class="col-6" >
+                                <!-- Use any element to open the sidenav -->
+                                <a href="#" onclick="openNav()" ><p class="h3"><small class="text-muted"> Profile </small></p></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-10" id="right_nav">
+                <div class="container "  id="nav_container" >
+                      <div class="collapse navbar-collapse" id="navbarResponsive" >
+                          <ul class="navbar-nav ml-auto" id="top_nav_bar">
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/blog">Home
+                                    <span class="sr-only">(current)</span>
+                                  </a>
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/query">GoTour</a><!-- go to query/index.html page  defined in Query app-->
+                                </li>
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="settings">Settings</a>
+                                </li>
+
+                              <li class="nav-item active" style="color: white;">
+                                  <span>{{user.username}}</span><!-- logout url pattern defined in Index app -->
+                                </li>
+
+                                <li class="nav-item active">
+                                  <a class="nav-link" href="/index/logout">LogOut</a><!-- logout url pattern defined in Index app -->
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
     </div>
 
+
+    <div class="float-md-left">
+    <br>
+    <!--new post-->
+    <p><a class="btn btn-outline-primary" href="{% url 'Blog:new_post' %}">create a new post</a></p>
+    <br>
+    <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
+    <p><a href="/index/register">Register</a></p>
+>>>>>>> 76b5ae030a88b01cb19a592c143f755662f638f3
+    </div>
+
+
+<!--<div class="float-right"> -->
     <!-- Page Content -->
     <div class="container">
         <div class="row">
@@ -68,7 +128,7 @@
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title">{{ blog.title }}</h2>
-              <p class="card-text">{{ blog.content }}</p>
+              <p class="card-text">{{ blog.content|truncatechars:50 }}</p>
               <a href="{% url 'Blog:blogDetail' blog.id %}" class="btn btn-primary">Read More &rarr;</a>
 
               {% if blog.owner != user %}
@@ -76,7 +136,7 @@
                 <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-dark">Delete Post</a>
               {% else %}
                 <a href="{% url 'Blog:edit_post' blog.id %}" class="btn btn-primary card-link">Edit Post &rarr;</a>
-                <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-warning">Delete Post</a>
+                <a href="{% url 'Blog:delete_post' blog.id %}" class="btn btn-default"><span class="glyphicon glyphicon-remove">Delete Post</span></a>
               {% endif %}
             </div>
             <div class="card-footer text-muted">
@@ -107,10 +167,10 @@
             <h5 class="card-header">Search </h5>
             <div class="card-body">
               <div class="input-group">
-                <input type="text" class="form-control" placeholder="People, Blogs">
-                <span class="input-group-btn">
-                  <button class="btn btn-secondary" type="button">Go!</button>
-                </span>
+                <form method="get" action="{% url 'Blog:simple_search' %}" accept-charset="utf-8" class="form-inline my-2 my-lg-0">
+					<input type="search" name="q" placeholder="Search blog" aria-label="Search" class="form-control mr-sm-2">
+					<button type="submit" class="btn btn-outline-success my-2 my-sm-0">Search</button>
+				</form>
               </div>
             </div>
           </div>
@@ -158,11 +218,21 @@
     <!-- Footer -->
     <footer class="py-3 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Smart Travel (2018)</p>
+        <p class="m-0 text-center text-white" id="footer-copyright"></p>
+
       </div>
       <!-- /.container -->
     </footer>
     </div>
     </div>
 
+<<<<<<< HEAD
+=======
+    <script>
+        var d = new Date();
+        document.getElementById("footer-copyright").innerHTML = "" +
+            "Copyright &copy; Smart Travel (" + d.getFullYear() + ")";
+    </script>
+
+>>>>>>> 76b5ae030a88b01cb19a592c143f755662f638f3
 {% endblock %}

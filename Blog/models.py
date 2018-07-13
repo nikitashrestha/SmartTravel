@@ -9,6 +9,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     date_pub = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    #ispublic=models.BooleanField(default=True)
 
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
