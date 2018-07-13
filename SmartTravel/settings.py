@@ -82,9 +82,9 @@ SOCIAL_AUTH_GOOGLE_PLUS_SCOPE = [
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='887968215094-tvuij35s8i0faqahqvssmtg9ltg1pett.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '63CrZ75ydvxXSUG5SnZr4RyO'
-LOGIN_URL = 'login'
-LOGOUT_URL='logout'
-LOGIN_REDIRECT_URL='index'
+LOGIN_URL = 'login' # url to login 
+LOGOUT_URL='logout' #url to logout
+LOGIN_REDIRECT_URL='index' #when unsuccessful login then redirect back to Index
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -191,8 +191,4 @@ STATICFILES_FINDERS = [
    'django.contrib.staticfiles.finders.FileSystemFinder',
    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
    'dajaxice.finders.DajaxiceFinder',
-]
-
-DAJAXICE_MEDIA_PREFIX=[
-    'dajaxice'
 ]

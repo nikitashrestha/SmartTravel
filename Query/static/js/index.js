@@ -110,15 +110,15 @@ function createMarker(place)
     google.maps.event.addListener(marker, 'click', function()
     {
         infoWindow.setPosition(marker);
-        infoWindow.setContent('You are here...');
+        infoWindow.setContent(place.formatted_address);
         infoWindow.open(map);
-        direction();
+        calculateAndDisplayRoute(directionsService, directionsDisplay, current_location, placeLoc);
         
     });
-    var direction =function(){
+   /* var direction =function(){
       calculateAndDisplayRoute(directionsService, directionsDisplay, current_location, placeLoc);
-    }
-    document.getElementById('mode').addEventListener('change', direction);
+    }*/
+   // document.getElementById('mode').addEventListener('change', direction);
 }
 
 

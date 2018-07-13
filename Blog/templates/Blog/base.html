@@ -17,7 +17,7 @@
       <script src="{% static 'js/blog-home.js' %} "></script>
 
   </head>
-  <body>
+  <body class="body">
     {% if user.is_authenticated %}
     {% block header %}
     {% endblock %}
@@ -29,7 +29,7 @@
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
 
     {% else %}
-    <p><a href="/index/login">Login</a></p><!-- go back to 'index/index.hmtl' page-->
+    <p><a href="/index/">Login</a></p><!-- go back to 'index/index.hmtl' page-->
     <p><a href="/index/register">Register</a></p>
     {% endif %}
 

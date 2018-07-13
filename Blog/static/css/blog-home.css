@@ -15,7 +15,7 @@ body {
 }
 
 
- /* The side navigation menu */
+ /* The side navigation for profile menu */
 .sidenav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -56,11 +56,19 @@ body {
     font-size: 36px;
     margin-left: 50px;
 }
-
+.body{
+   
+    background-color: #d6d8cf;
+ 
+   /* background: linear-gradient(37rad,  #a6566e, #734072, #487988 , #228683, #ca9da3, #cac79d);*/ 
+}
 /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
 #main {
     transition: margin-left .5s;
     padding: 7px;
+    background-color: #ffffff;
+    
+    
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
@@ -68,22 +76,20 @@ body {
     .sidenav {padding-top: 10px;}
     .sidenav a {font-size: 10px;}
 }
-
-#right_nav{
-   padding-left: 800px;
-}
-
-#left_nav{
-    padding-left: 10px;
-}
-
-#nav_col{
-    padding: 0;
-    margin: 1px;
-}
-
-#top_nav_bar li a{
-    font-size: 19px;
+a{
+    font-size: 12pt;
+    color:  #43678f;
     font-weight: light;
-    font-family: arial,  cursive;
+    font-family: arial;
 }
+a:hover
+{
+    font-size: 17pt;
+    color:  #43678f;
+    font-weight: bold;
+    text-decoration: none;
+}
+#blog-card{
+    background-color: #c5bac1;
+}
+

@@ -12,79 +12,59 @@
         <a href="#">Tour Diary </a>
         <a href="#">Followers</a>
         <a href="#">Followings</a>
+        <a href="#">Settings</a>
     </div>
-
-
 
 <div id="main">
-
     <!-- Navigation -->
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="row">
-            <div class="col-2" id="left_nav">
-                <div class="container" id="nav_container">
-                    <div class="row">
-                        <div class="col-6" >
-                            <img id="profile"  class="card-img-left border" src="{% static 'images/shristi.jpg' %}" style="width:56px; border-radius: 50%" alt="profile" >
-                        </div>
-                            <div class="col-6" >
-                                <!-- Use any element to open the sidenav -->
-                                <a href="#" onclick="openNav()" ><p class="h3"><small class="text-muted"> Profile </small></p></a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-10" id="right_nav">
-                <div class="container "  id="nav_container" >
-                      <div class="collapse navbar-collapse" id="navbarResponsive" >
-                          <ul class="navbar-nav ml-auto" id="top_nav_bar">
-                                <li class="nav-item active">
-                                  <a class="nav-link" href="/blog">Home
-                                    <span class="sr-only">(current)</span>
-                                  </a>
-                                </li>
-                                <li class="nav-item active">
-                                  <a class="nav-link" href="/query">GoTour</a><!-- go to query/index.html page  defined in Query app-->
-                                </li>
-                                <li class="nav-item active">
-                                  <a class="nav-link" href="settings">Settings</a>
-                                </li>
+    <div class="class-nav">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a href="#" onclick="openNav();" ><img id="profile"  class="card-img-left border" src="{% static 'images/shristi.jpg' %}" style="width:56px; border-radius: 50%" alt="profile" ></a>
+          
+          <!-- for three line button when window size is smaller -->
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-expanded controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
 
-                              <li class="nav-item active" style="color: white;">
-                                  <span>{{user.username}}</span><!-- logout url pattern defined in Index app -->
-                                </li>
-
-                                <li class="nav-item active">
-                                  <a class="nav-link" href="/index/logout">LogOut</a><!-- logout url pattern defined in Index app -->
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </div>
-
-
-    <div class="float-left">
-    <br>
-    <!--new post-->
-    <p><a class="btn btn-outline-primary" href="{% url 'Blog:new_post' %}">create a new post</a></p>
-    <br>
-    <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
-    <p><a href="/index/register">Register</a></p>
+          <!-- for top-right nav bar -->
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto" id="top_nav_bar">
+              <li class="nav-item">
+                <a class="nav-link" href="/blog">Home
+                  <span class="sr-only"> (current)</span>
+                </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/query">GoTour</a><!-- go to query/index.html page  defined in Query app-->
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="settings">Settings</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/index/logout">LogOut</a><!-- logout url pattern defined in Index app -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
 
     <!-- Page Content -->
     <div class="container">
         <div class="row">
+         
         <!-- Blog POST Column -->
         <div class="col-md-8">
-
+          <div class="float-center">
+            <br>
+              <!--new post here-->
+              <a href="{% url 'Blog:new_post' %}">Add Post</a>
+            <br>
+          </div>
 {% for blog in blogPosts %}
           <!-- Blog Posts -->
-          <div class="card">
+          <div class="card bg-light mb-3 border-dark mb-3" id=" blog-card">
             <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
             <div class="card-body">
               <h2 class="card-title">{{ blog.title }}</h2>
@@ -123,7 +103,7 @@
         <div class="col-md -4">
 
           <!-- Search Widget -->
-          <div class="card my-4">
+          <div class="card my-4 border-dark">
             <h5 class="card-header">Search </h5>
             <div class="card-body">
               <div class="input-group">
@@ -136,7 +116,7 @@
           </div>
 
           <!-- Categories Widget -->
-          <div class="card my-4">
+          <div class="card my-4 border-dark">
             <h4 class="card-header">Notifications</h4>
             <div class="card-body">
               <div class="row">
@@ -161,7 +141,7 @@
           </div>
 
           <!-- Side Widget -->
-          <div class="card my-4">
+          <div class="card my-4 border-dark">
             <h5 class="card-header">Side Widget</h5>
             <div class="card-body">
               When hovered over a blog, show profile about person who posted here.
@@ -184,9 +164,5 @@
     </footer>
     </div>
     </div>
-
-
-    <p><a href="/index">Login</a></p><!-- go back to 'index/index.hmtl' page-->
-    <p><a href="/index/register">Register</a></p>
 
 {% endblock %}

@@ -1,11 +1,3 @@
-'''
-This is the one !!!
-Client Id: 
-887968215094-tvuij35s8i0faqahqvssmtg9ltg1pett.apps.googleusercontent.com
-Client secret:
-63CrZ75ydvxXSUG5SnZr4RyO
-'''
-
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
